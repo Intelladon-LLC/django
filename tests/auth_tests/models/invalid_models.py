@@ -4,7 +4,7 @@ from django.db import models
 
 class CustomUserNonUniqueUsername(AbstractBaseUser):
     "A user with a non-unique username"
-    username = models.CharField(max_length=30)
+    username = models.CharField(max_length=150)
 
     USERNAME_FIELD = 'username'
 
@@ -14,7 +14,7 @@ class CustomUserNonUniqueUsername(AbstractBaseUser):
 
 class CustomUserNonListRequiredFields(AbstractBaseUser):
     "A user with a non-list REQUIRED_FIELDS"
-    username = models.CharField(max_length=30, unique=True)
+    username = models.CharField(max_length=150, unique=True)
     date_of_birth = models.DateField()
 
     USERNAME_FIELD = 'username'
@@ -26,7 +26,7 @@ class CustomUserNonListRequiredFields(AbstractBaseUser):
 
 class CustomUserBadRequiredFields(AbstractBaseUser):
     "A user with a USERNAME_FIELD that appears in REQUIRED_FIELDS (invalid)"
-    username = models.CharField(max_length=30, unique=True)
+    username = models.CharField(max_length=150, unique=True)
     date_of_birth = models.DateField()
 
     USERNAME_FIELD = 'username'
